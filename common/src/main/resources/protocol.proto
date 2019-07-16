@@ -3,7 +3,7 @@ syntax = "proto3";
 package rpc.pkg;
 
 
-message HelloRequest {
+message CoproductRequest {
   oneof coproduct {
     bool boolt = 1;
     int32 intt = 2;
@@ -11,10 +11,44 @@ message HelloRequest {
   }
 }
 
+message NonlikeCoproductRequest {
+  oneof coproduct {
+    bool boolt = 1;
+    fixed32 doublet = 2;
+    string stringt = 3;
+  }
+}
+
+message IntRequest {
+  int32 intt = 1;
+}
+
+message BoolRequest {
+  int32 boolt = 1;
+}
+
+message DoubleRequest {
+  int32 doublet = 1;
+}
+
+message StringRequest {
+  int32 stringt = 1;
+}
+
+message HelloRequest {
+  int32 name = 1;
+}
+
 message HelloResponse {
   string message = 1;
 }
 
 service Greeter {
+  rpc EchoCoproduct (CoproductRequest) returns (CoproductRequest);
+  rpc EchoNonlikeCoproduct (NonlikeCoproductRequest) returns (NonlikeCoproductRequest);
+  rpc EchoInt (IntRequest) returns (IntRequest);
+  rpc EchoBool (BoolRequest) returns (BoolRequest);
+  rpc EchoDouble (DoubleRequest) returns (DoubleRequest);
+  rpc EchoString (StringRequest) returns (StringRequest);
   rpc SayHello (HelloRequest) returns (HelloResponse);
 }
