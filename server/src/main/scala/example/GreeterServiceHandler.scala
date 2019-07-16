@@ -11,7 +11,6 @@ class GreeterServiceHandler[F[_]:Timer](implicit F: Sync[F], L: Logger[F]) exten
   val serviceName = "Greeter"
 
   override def SayHello(req: protocol.HelloRequest): F[protocol.HelloResponse] = {
-    println("Hi dayvus")
-    L.info(s"$serviceName - Request: $req").as(protocol.HelloResponse("hi"))
+    L.info(s"$serviceName - Request: $req").as(protocol.HelloResponse(s"$req"))
   }
 }
