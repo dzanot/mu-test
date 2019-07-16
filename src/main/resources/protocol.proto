@@ -5,6 +5,11 @@ package rpc.pkg;
 
 message HelloRequest {
   float name = 1;
+  oneof gender {
+    bool boolthing = 2;
+    int32 inthing = 3;
+    string stringthing = 4;
+  }
 }
 
 message HelloResponse {
