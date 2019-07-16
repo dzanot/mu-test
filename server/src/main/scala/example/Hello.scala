@@ -28,15 +28,6 @@ class GreeterServiceProgram[F[_]: ConcurrentEffect: Timer] {
 object Hello extends IOApp {
   override def run(args: List[String]): IO[ExitCode] = {
     new GreeterServiceProgram[IO].runProgram(args)
-//    val serverDef: IO[ServerServiceDefinition] =
-//    for {
-//      logger <- Slf4jLogger.fromName[IO]("GreeterService")
-//      greeter <- Greeter.bindService[IO]
-//      server <- GrpcServer.default[IO](8080, List(AddService(greeter)))
-//      runServer <- GrpcServer.server[IO](server)
-//    } yield {
-//      ExitCode.Success
-//    }
   }
 }
 

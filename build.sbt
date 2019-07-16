@@ -13,7 +13,6 @@ lazy val commonSettings = Seq(
   addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.patch),
   libraryDependencies ++= Seq(
     "io.higherkindness" %% "mu-rpc-channel" % muRPCVersion,
-    "io.higherkindness" %% "mu-config" % muRPCVersion,
     "io.higherkindness" %% "mu-rpc-fs2" % muRPCVersion,
     "io.higherkindness" %% "mu-rpc-netty" % muRPCVersion,
     "io.chrisdavenport" %% "log4cats-slf4j"   % "0.4.0-M1",
@@ -23,7 +22,7 @@ lazy val commonSettings = Seq(
 
 lazy val root = project
   .in(file("."))
-  .aggregate(common, server)
+  .aggregate(common, server, client)
 
 lazy val common = (project in file("common"))
   .settings(

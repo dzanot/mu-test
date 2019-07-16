@@ -1,10 +1,8 @@
 package example
 
-import cats.effect.{IO, IOApp, Resource, Sync}
+import cats.effect.{IO, Resource, Sync}
 import cats.implicits._
 import higherkindness.mu.rpc.{ChannelFor, ChannelForAddress}
-import higherkindness.mu.rpc.config._
-import higherkindness.mu.rpc.config.channel._
 import io.chrisdavenport.log4cats.Logger
 import io.chrisdavenport.log4cats.slf4j.Slf4jLogger
 import rpc.pkg.protocol.{Greeter, HelloRequest, HelloResponse}
